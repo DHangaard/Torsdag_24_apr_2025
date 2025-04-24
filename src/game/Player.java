@@ -28,18 +28,22 @@ public class Player {
                 requestedRoom = currentRoom.getNorthRoom();
                 break;
             case SOUTH:
-                //TODO
+                requestedRoom = currentRoom.getSouthRoom();
                 break;
             case EAST:
-                //TODO
+                requestedRoom = currentRoom.getEastRoom();
                 break;
             case WEST:
-                //TODO
+                requestedRoom = currentRoom.getWestRoom();
                 break;
         }
 
         // TODO if (requestedRoom != null) make currentRoom the requestedRoom;
         // TODO return whether move was possible
+        if (requestedRoom != null){
+            setCurrentRoom(requestedRoom);
+            return true;
+        }
         return false;
     }
 

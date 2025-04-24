@@ -32,37 +32,56 @@ public class Room {
         this.addItem(new Item(description, name));
     }
 
+
+    // Accessors and mutators
+    // North
     public Room getNorthRoom() {
-        return null; //TODO
+        return this.northRoom;
     }
 
     public void setNorthRoom(Room northRoom) {
-       //TODO
+       this.northRoom = northRoom;
+       if (northRoom.getSouthRoom() != this){
+           northRoom.setSouthRoom(this);
+       }
     }
 
+    // East
     public Room getEastRoom() {
-        return null; //TODO
+        return this.eastRoom;
     }
 
     public void setEastRoom(Room eastRoom) {
-        //TODO
+        this.eastRoom = eastRoom;
+        if (eastRoom.getWestRoom() != this){
+            eastRoom.setWestRoom(this);
+        }
     }
 
+    // South
     public Room getSouthRoom() {
-        return null; //TODO
+        return this.southRoom;
     }
 
     public void setSouthRoom(Room southRoom) {
-       //TODO
+       this.southRoom = southRoom;
+       if (southRoom.getNorthRoom() != this){
+           southRoom.setNorthRoom(this);
+       }
     }
 
+    // West
     public Room getWestRoom() {
-        return null; //TODO
+        return this.westRoom;
     }
 
     public void setWestRoom(Room westRoom) {
-        //TODO
+        this.westRoom = westRoom;
+        if (westRoom.getEastRoom() != this){
+            westRoom.setEastRoom(this);
+        }
     }
+
 
     public String getName() {
         return name;
@@ -72,6 +91,8 @@ public class Room {
         return description;
     }
 
+
+    // Items
     public Item removeItem(String itemName) {
         Item itemToBeRemoved = findItem(itemName);
         if (itemToBeRemoved != null) {
